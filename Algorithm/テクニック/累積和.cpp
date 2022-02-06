@@ -1,4 +1,4 @@
-//ABC238Bより
+//ABC238Bより pizzaを適宜回しながら0度の位置を切った時の最も大きいpizzaの中心角の判定
 
 #include<bits/stdc++.h>
 #include<atcoder/all>
