@@ -1,3 +1,6 @@
+//231D 1 から N の番号がついた N 人を横一列に並べる方法 条件：(人Aiと人Biは隣り合っている)がM個ある
+//参考:https://atcoder.jp/contests/abc231/submissions/27829871
+
 #include<bits/stdc++.h>
 #include<atcoder/all>
 using namespace atcoder;
