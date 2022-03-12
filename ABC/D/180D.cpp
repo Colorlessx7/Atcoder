@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#include<atcoder/all>
+using namespace atcoder;
+using namespace std;
+#define rep(i,N) for(int i = 0; i < N; i++)
+#define rep2(i,N) for(int i = 1; i <= N; i++)
+#define rep3(i,N) for(int i = N - 1; i >= 0; i--)
+#define rep4(i,N) for(int i = N; i > 0; i--)
+#define replr(i,l,r) for(int i = l; i < r; i++)
+#define all(x) x.begin(),x.end() 
+#define allr(x) x.rbegin(),x.rend() 
+typedef long long ll;
+using P = pair<int,int>;
+int main(){
+    ll x, y, a, b;
+    cin >> x >> y >> a >> b;
+    y--;
+    ll ans = 0;
+    while(1){
+        //オーバーフロー対策
+        if(y / a < x){
+            break;
+        }
+        //xをa倍したときに進化してしまうならループを抜ける
+        if(a * x >= y){
+            break;
+        }
+        //行動bよりも行動aの方が上昇量が上になってしまうならループを抜ける
+        if(a * x >= x + b){
+            break;
+        }
+        //xをa倍した方が上昇量を抑えられるのでa倍する
+        x *= a;
+        //経験値が1増える
+        ans++;
+    }
+    //行動bが進化しないギリギリまでできる回数分経験値を足す,O(1)
+    ans += (y - x) / b;
+    cout << ans << endl;
+    return 0;
+}
