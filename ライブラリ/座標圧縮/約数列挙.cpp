@@ -8,3 +8,5 @@ void divisor(ll n, vector<ll>& div) {
     sort(all(div));
     return;
 }
+//vector<ll> num;
+//divisor(n,num);
