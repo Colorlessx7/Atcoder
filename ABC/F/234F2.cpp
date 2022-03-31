@@ -87,3 +87,5 @@ int main(){
     return 0;
 }
 //改善ver
+//実装を楽する方法としてACLのconvolutionを使う方法がある
+//https://atcoder.jp/contests/abc234/submissions/28402488
