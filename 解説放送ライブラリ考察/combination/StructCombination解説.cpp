@@ -1,6 +1,5 @@
 //参考:https://github.com/atcoder/live_library/blob/master/comb.cpp
 using mint = modint1000000007;
-using mint = modint1000000007;
 const int mod = 1000000007;
 //組み合わせの個数nCkを求める構造体
 struct combination {
