@@ -1,4 +1,11 @@
+//nCkmodを計算する構造体
+
+//コンストラクタ呼び出し combination 構造体変数名(n) //n:int 階乗とその逆元が欲しい範囲まで
+//nCkmodの計算 構造体変数名(n,k) //nCkをmodを取りながら計算する
+
 //参考:https://github.com/atcoder/live_library/blob/master/comb.cpp
+
+//modを取るのでACLのmodintが必要 assertでmodを参照するのでmodが必要
 using mint = modint1000000007;
 const int mod = 1000000007;
 //組み合わせの個数nCkを求める構造体
