@@ -1,3 +1,7 @@
+//using mint = modint1000000007;
+//const int mod = 1000000007;
+//using mint = modint998244353;
+//const int mod = 998244353;
 struct combination {
   vector<mint> fact, ifact;
   combination(int n):fact(n+1),ifact(n+1) {
