@@ -29,23 +29,29 @@ int main(){
       cin >> b[i][j];
     }
   }
+  //平行移動させた時の全探索の開始点がとりうるi,jごとの個数
   ll x = n - (m - 1);
+  //平行移動時の全探索の開始点(i,j)を決めるループ
   rep(h,x){
     rep(w,x){
       bool ans = false;
+      //全探索で図形が完全に一致しているか見るループ
       rep(i,m){
         rep(j,m){
+          //平行移動させてbの図形とaの中の(h,w)ずれたbと同じ大きさの図形が完全に一致しているか確認
           if(a[i+h][j+w] != b[i][j]){
             ans = true;
           }  
         }
       }
+      //完全に一致していたらans=falseとなっているのでYesを出力して終了
       if(!ans){
         cout << "Yes" << endl;
         return 0;
       }
     }
   }
+  //平行移動しても一致しているものが一つもない場合
   cout << "No" << endl;
   return 0;
 }
