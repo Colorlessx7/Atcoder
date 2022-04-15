@@ -1,20 +1,33 @@
 #include<bits/stdc++.h>
+#include<atcoder/all>
+using namespace atcoder;
 using namespace std;
-#define rep(i,N) for(int i = 0; i < N; i++)
+#define rep(i,N) for(ll i = 0; i < N; i++)
+#define rep2(i,N) for(ll i = 1; i <= N; i++)
+#define rep3(i,N) for(ll i = N - 1; i >= 0; i--)
+#define rep4(i,N) for(ll i = N; i > 0; i--)
+#define replr(i,l,r) for(ll i = l; i < r; i++)
+#define reprl(i,l,r) for(ll i = l; i >= r; i--)
+#define all(x) x.begin(),x.end() 
+#define allr(x) x.rbegin(),x.rend() 
+using ll = long long;
+using P = pair<ll,ll>;
+void chmin(ll &x, ll y){ x = min(x,y); }
+void chmax(ll &x, ll y){ x = max(x,y); }
 int main(){
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    rep(i,n){
-        cin >> a[i];
+  ll n;
+  cin >> n;
+  vector<ll> a(n);
+  rep(i,n){
+    cin >> a[i];
+  }
+  ll ans = 0;
+  rep(i,n){
+    while(a[i] % 2 == 0){
+      ans++;
+      a[i] /= 2;
     }
-    int ans =0;
-    rep(i,n){
-        while(a[i] % 2 == 0){
-            a[i] /= 2;
-            ans++;
-        }
-    }
-    cout << ans << endl;
-    return 0;
+  }
+  cout << ans << endl;
+  return 0;
 }
