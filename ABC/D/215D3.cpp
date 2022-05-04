@@ -34,7 +34,7 @@ int main(){
     //n個のaの中に約数iが含まれていたらtrue,含まれないならfalse
     bool flag = false;
     //iの倍数jがn個のaの中に存在したか判定(j+=iより計算量はo(logL))
-    for(ll j = i; i < L; j += i){
+    for(ll j = i; j < L; j += i){
       //個数分布上でiの倍数jが存在したら約数iがn個のaの中に存在したことになるのでflagを立てる
       if(x[j]){
         flag = true;
