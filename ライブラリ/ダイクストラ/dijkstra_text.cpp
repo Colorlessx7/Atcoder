@@ -115,7 +115,8 @@ struct graph{
     ll f = path.size();
     //経路を順に出力
     rep(i,f){
-      cout << path[i] << endl;
+      //頂点番号は1indexedなのを処理上で0indexedにしていることが多いので+1している
+      cout << path[i] + 1 << endl;
     }
   }
 };
