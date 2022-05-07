@@ -117,7 +117,8 @@ struct graph{
     ll f = path.size();
     //経路を順に出力
     rep(i,f){
-      cout << path[i] << endl;
+      //1indexedを0indexedで扱っていたので+1
+      cout << path[i] + 1 << endl;
     }
   }
 };
