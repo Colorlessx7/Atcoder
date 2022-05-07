@@ -1,3 +1,10 @@
+//struct:dijkstraでやれることリスト
+//add_edge(a,b,c):aからbへ向かうコストcの辺を張る
+//dijkstra(s):頂点sからの各頂点への最短距離を計算する
+//get(t):sからtまでの最短経路の頂点番号を調べる
+//retpath():get(t)で作ったsからtまでの最短経路の頂点番号を出力する
+
+
 const ll INF = 1LL << 60;
 //辺についてを管理するデータ構造
 //to:辺の向かう先,cost:辺の移動にかかるコスト
@@ -91,6 +98,8 @@ struct graph{
   }
   //頂点sから頂点tまでの経路復元用の関数(引数t:ゴールの頂点番号)
   void get(ll t){
+    //都度経路を初期化する
+    path.clear();
     //開始点sの一つ前の頂点prev[s]はひとつ前が存在しないため
     //必ず-1となるので開始点までを逆順にループする処理になっている
     for(ll i = t; i != -1; i = prev[i]){
@@ -99,5 +108,14 @@ struct graph{
     }
     //逆順になっているので反転させる
     reverse(all(path));
+  }
+  //経路を出力する関数(getで入手したs-tの経路を出力する)
+  void retpath(){
+    //pathの配列のサイズをfに格納
+    ll f = path.size();
+    //経路を順に出力
+    rep(i,f){
+      cout << path[i] << endl;
+    }
   }
 };
