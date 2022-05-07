@@ -4,6 +4,8 @@
 //get(t):sからtまでの最短経路の頂点番号を調べる
 //retpath():get(t)で作ったsからtまでの最短経路の頂点番号を出力する
 
+//出典:https://nexusuica.hatenablog.jp/entry/2018/08/14/114524
+//https://algo-logic.info/dijkstra/
 
 const ll INF = 1LL << 60;
 //辺についてを管理するデータ構造
