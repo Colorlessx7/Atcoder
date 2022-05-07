@@ -2,30 +2,29 @@
 #include<atcoder/all>
 using namespace atcoder;
 using namespace std;
-#define rep(i,N) for(int i = 0; i < N; i++)
-#define rep2(i,N) for(int i = 1; i <= N; i++)
-#define rep3(i,N) for(int i = N - 1; i >= 0; i--)
-#define rep4(i,N) for(int i = N; i > 0; i--)
+#define rep(i,N) for(ll i = 0; i < N; i++)
+#define rep2(i,N) for(ll i = 1; i <= N; i++)
+#define rep3(i,N) for(ll i = N - 1; i >= 0; i--)
+#define rep4(i,N) for(ll i = N; i > 0; i--)
+#define replr(i,l,r) for(ll i = l; i < r; i++)
+#define reprl(i,l,r) for(ll i = l; i >= r; i--)
 #define all(x) x.begin(),x.end() 
-typedef long long ll;
-using P = pair<int,int>;
-//最小公倍数を求める関数
-ll lcm(ll a,ll b){
-    return a / gcd(a,b) * b;
-}
-ll f(ll x, ll c, ll d){
-    ll res = x;
-    res -= x/c;
-    res -= x/d;
-    res += x/lcm(c,d);
-    return res;
+#define allr(x) x.rbegin(),x.rend() 
+using ll = long long;
+using P = pair<ll,ll>;
+void chmin(ll &x, ll y){ x = min(x,y); }
+void chmax(ll &x, ll y){ x = max(x,y); }
+ll a, b, c, d;
+ll f(ll x){
+  ll cc = x / c;
+  ll dd = x / d;
+  ll cd = x / lcm(c,d);
+  return x - cc - dd + cd;
 }
 int main(){
-    ll a, b, c, d;
-    cin >> a >> b >> c >> d;
-    ll ans = f(b,c,d) - f(a-1,c,d);
-    cout << ans << endl;
-    return 0;
+  cin >> a >> b >> c >> d;
+  cout << f(b) - f(a-1) << endl;
+  return 0;
 }
 //解説acver f(x)はx以下でcでもdでも割り切れる数の総数を求める
 //a~bまでの範囲のf()を求める場合f(b)-f(a-1)をすればもとまる
