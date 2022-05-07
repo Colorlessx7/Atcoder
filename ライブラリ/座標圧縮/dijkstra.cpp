@@ -40,11 +40,10 @@ struct graph{
       }
     }
   }
-  vector<ll> get(ll t){
+  void get(ll t){
     for(ll i = t; i != -1; i = prev[i]){
       path.push_back(i);
     }
     reverse(all(path));
-    return path;
   }
 };
