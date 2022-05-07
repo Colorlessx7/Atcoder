@@ -4,16 +4,16 @@ struct graph{
   ll V;
   vector<vector<edge>> G;
   vector<ll> d;
+  vector<ll> prev;
+  vector<ll> path;
   graph(ll n){
     init(n);
   }
   void init(ll n){
     V = n;
     G.resize(V);
-    d.resize(V);
-    rep(i,V){
-      d[i] = INF;
-    }
+    d.resize(V,INF);
+    prev.resize(V,-1);
   }
   void add_edge(ll s, ll t, ll cost){
     edge e;
@@ -34,9 +34,17 @@ struct graph{
       for(auto e : G[v]){
         if(d[e.to] > d[v] + e.cost){
           d[e.to] = d[v] + e.cost;
+          prev[e.to] = v;
           que.push(P(d[e.to],e.to));
         }
       }
     }
+  }
+  vector<ll> get(ll t){
+    for(ll i = t; i != -1; i = prev[i]){
+      path.push_back(i);
+    }
+    reverse(all(path));
+    return path;
   }
 };
