@@ -41,9 +41,16 @@ struct graph{
     }
   }
   void get(ll t){
+    path.clear();
     for(ll i = t; i != -1; i = prev[i]){
       path.push_back(i);
     }
     reverse(all(path));
+  }
+  void retpath(){
+    ll f = path.size();
+    rep(i,f){
+      cout << path[i] << endl;
+    }
   }
 };
