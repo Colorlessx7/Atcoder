@@ -50,7 +50,7 @@ struct graph{
   void retpath(){
     ll f = path.size();
     rep(i,f){
-      cout << path[i] << endl;
+      cout << path[i] + 1 << endl;
     }
   }
 };
