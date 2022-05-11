@@ -20,7 +20,7 @@ void prime(){
     //i^2から素数iの倍数[i*j]を全てfalseにする
     for(ll j = i*i; j <= M; j += i){
       //素数iの倍数は素数でないのでfalseに
-      primes[i * j] = 0;
+      primes[j] = 0;
     }
   }
   return;
