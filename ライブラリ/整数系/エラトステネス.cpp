@@ -9,7 +9,7 @@ void prime(){
     }
     d.push_back(i);
     for(ll j = i*i; j <= M; j += i){
-      primes[i * j] = 0;
+      primes[j] = 0;
     }
   }
   return;
