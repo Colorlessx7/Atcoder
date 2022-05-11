@@ -25,4 +25,4 @@ void prime(){
   }
   return;
 }
-//計算量O(MloglogM)
+//計算量O(Mlog(log(M)))
