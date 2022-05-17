@@ -99,6 +99,7 @@ vector<ll> solve(){
     //outの末尾にbest_iを格納し、d日目にコンテストbest_iを行うよう決める
     out.push_back(best_i);
   }
+  //コンテストの日にち毎の種類を全て決めたのでそれをmain関数に返す
   return out;
 }
 
