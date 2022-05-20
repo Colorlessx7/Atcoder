@@ -116,6 +116,7 @@ struct State{
         break;
       }
     }
+    //old_p = lower_bound(all(ds[old_i]),d+1) - ds[old_i].begin();
     ll prev = 0;
     if(old_p-1 >= 0){
       prev = ds[old_i][old_p-1];
@@ -124,7 +125,7 @@ struct State{
     if(old_p+1 < ds_old_i_size){
       next = ds[old_i][old_p+1];
     }
-    //ds[old_i].erase(ds[old_i].begin()+old_p);
+    ds[old_i].erase(ds[old_i].begin()+old_p);
     new_score += (cost(prev,d+1) + cost(d+1,next) - cost(prev,next)) * c[old_i];
     ll ds_new_i_size = ds[new_i].size();
     new_p = ds_new_i_size;
@@ -134,6 +135,7 @@ struct State{
         break;
       }
     }
+    //new_p = upper_bound(all(ds[new_i]),d+1) - ds[new_i].begin();
     prev = 0;
     if(new_p-1 >= 0){
       prev = ds[new_i][new_p-1];
@@ -142,7 +144,7 @@ struct State{
     if(new_p < ds_new_i_size){
       next = ds[new_i][new_p];
     }
-    //ds[new_i].insert(ds[new_i].begin()+new_p,d+1);
+    ds[new_i].insert(ds[new_i].begin()+new_p,d+1);
     new_score -= (cost(prev, d + 1) + cost(d + 1, next) - cost(prev, next)) * c[new_i];
     new_score += s[d][new_i] - s[d][old_i];
     out[d] = new_i;
@@ -158,9 +160,9 @@ struct State{
       ll new_score = change(d,q);
       if(score > new_score){
         out[d] = old;
+        ds[out[d]].insert(ds[out[d]].begin()+old_p,d+1);
+        ds[q].erase(ds[q].begin()+new_p);
       }else {
-        ds[out[d]].erase(ds[out[d]].begin()+old_p);
-        ds[q].insert(ds[q].begin()+new_p,d+1);
         out[d] = q;
         score = new_score;
       }
@@ -197,4 +199,7 @@ int main(){
   return 0;
 }
 
-//run周りで配列外参照を起こしているため要検証
+//111'823'234点
+//高速化前と比べて一万点増えたくらい
+//作る過程で配列外参照を起こしていたりもしていたため完璧にできているかはわからない
+//今のところ高速化解よりも局所探索の方法を変えた解の方が点数は高い
