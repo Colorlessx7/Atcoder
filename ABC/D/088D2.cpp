@@ -57,6 +57,7 @@ int main(){
       q.push({i,j+1,num});
     }
   }
+  //例外処理(1WA)
   if(dp[h-1][w-1] == INF){
     cout << -1 << endl;
     return 0;
