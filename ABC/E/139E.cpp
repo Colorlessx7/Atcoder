@@ -60,7 +60,10 @@ int main(){
   while(q.size() > 0){
     //日数を+1する
     day++;
+    //erase,uniqueで重複削除をする場合に事前にsortしておく必要がある
     sort(all(q));
+    //q内の重複している要素を削除する(uniqueで重複してない要素が先頭に固まり、重複している要素が末尾に固まる
+    //unique(all(q))で重複している要素の先頭のイテレータが返り、そこから末尾までがeraseで消える)
     q.erase(unique(all(q)),q.end());
     //qを次の日に行う試合の情報、prevqを今日行う試合の情報として扱う
     vector<P> prevq;
