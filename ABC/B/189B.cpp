@@ -2,33 +2,36 @@
 #include<atcoder/all>
 using namespace atcoder;
 using namespace std;
-#define rep(i,N) for(int i = 0; i < N; i++)
-#define rep2(i,N) for(int i = 1; i <= N; i++)
-#define rep3(i,N) for(int i = n - 1; i >= 0; i--)
-#define rep4(i,N) for(int i = n; i > 0; i--)
+#define rep(i,N) for(ll i = 0; i < N; i++)
+#define rep2(i,N) for(ll i = 1; i <= N; i++)
+#define rep3(i,N) for(ll i = N - 1; i >= 0; i--)
+#define rep4(i,N) for(ll i = N; i > 0; i--)
+#define replr(i,l,r) for(ll i = l; i < r; i++)
+#define reprl(i,l,r) for(ll i = l; i >= r; i--)
 #define all(x) x.begin(),x.end() 
-typedef long long ll;
-using P = pair<int,int>;
+#define allr(x) x.rbegin(),x.rend() 
+using ll = long long;
+using P = pair<ll,ll>;
+using TP = tuple<ll,ll,ll>;
+void chmin(ll &x, ll y){ x = min(x,y); }
+void chmax(ll &x, ll y){ x = max(x,y); }
 int main(){
-    int n, x;
-    cin >> n >> x;
-    x *= 100;
-    vector<int> vp;
-    vp.push_back(0);
-    int sum = 0;
-    rep(i,n){
-        int v, p;
-        cin >> v >> p;
-        sum += v * p;
-        vp.push_back(sum);
+  ll n, x;
+  cin >> n >> x;
+  x *= 100;
+  vector<ll> r(n+1);
+  rep(i,n){
+    ll v, p;
+    cin >> v >> p;
+    r[i+1] = r[i] + v*p;
+  }
+  ll ans = -1;
+  rep2(i,n){
+    if(x < r[i]){
+      ans = i;
+      break;
     }
-    int ans = -1;
-    rep(i,n+1){
-        if(x < vp[i]){
-            ans = i;
-            break;
-        }
-    }
-    cout << ans << endl;
-    return 0;
+  }
+  cout << ans << endl;
+  return 0;
 }
