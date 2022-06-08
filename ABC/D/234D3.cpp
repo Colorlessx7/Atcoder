@@ -51,4 +51,5 @@ int main(){
     return 0;
 }
 //segtreeを使用して解いたver
-
+//segtree内のa[p]の値が入力のpの個数に対応する(BITで転倒数を求める時と同じ感じ)
+//
