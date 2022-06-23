@@ -57,9 +57,11 @@ int main(){
   /*for(ll i = max(0LL,st-3); i <= max(n-1,st+3); i++){
     ans = min(abs(a+d*i-x),ans);
   }*/
+  //stが問題の等差数列の各項の項番号のどこかを指していたら処理
   if(0 <= st && st < n){
     ans = min(abs(a+d*st-x),ans);
   }
+  //edが問題の等差数列の各項の項番号のどこかを指していたら処理
   if(0 <= ed && ed < n){
     ans = min(abs(a+d*ed-x),ans);
   }
