@@ -16,6 +16,7 @@ void chmin(int &x, int y){ x = min(x,y); }
 void chmax(int &x, int y){ x = max(x,y); }
 void chmin(ll &x, ll y){ x = min(x,y); }
 void chmax(ll &x, ll y){ x = max(x,y); }
+//o(NlogN)
 void solve(){
   int n;
   cin >> n;
@@ -27,7 +28,7 @@ void solve(){
   ll res = 0;
   //a[i]<iを満たすiを格納する配列
   vector<int> v;
-  //全要素についてiを昇順に回す
+  //全要素についてiを昇順に回すO(N)
   rep2(i,n){
     //a[i]<iを満たさないものはコンティニューして捨てる
     if(a[i] >= i){
@@ -35,7 +36,7 @@ void solve(){
     }  
     //vにすでに格納した要素(全てa[i]<iを満たす)をa[i],iとし、
     //現在見ているa[i],iをa[j],jとして考え、i<ajを満たすものの個数を二分探索で計算する
-    //二分探索でa[i]以上のiの値(条件の最初の範囲外)が格納されているvのindexを得る
+    //二分探索でa[i]以上のiの値(条件の最初の範囲外)が格納されているvのindexを得るO(logN)
     //そのindexの値が0番目のindexから条件を満たすものの個数となる
     //([0,4)の4が二分探索で得られ、要素の個数は4となる)
     res += (ll)(lower_bound(all(v),a[i]) - v.begin());
