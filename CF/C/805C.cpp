@@ -22,6 +22,7 @@ void solve(){
   //key:駅の数字u,value:fi=駅keyが最初に登場するindex,se=駅keyが最後に登場するindex
   map<int,P> mp;
   //全駅の番号について処理
+  //O(N),全体でO(NlogN) (mapのinsertにlogN)
   rep(i,n){
     //u:i番目の駅の数字
     int u;
@@ -40,11 +41,12 @@ void solve(){
     }
   }
   //クエリ処理
+  //O(k),全体でO(NlogN)
   rep(i,k){
     //a:駅の始点、b:駅の終点
     int a, b;
     cin >> a >> b;
-    //左二つで駅の番号a,bがそもそも駅の要素u0~un-1の存在するかを判定している
+    //左二つで駅の番号a,bがそもそも駅の要素u0~un-1の存在するかを判定している O(logN)
     //(map内にkeyがa,bの数字のものが存在しないならtrue)
     //(左側に書くことでa,bが存在しない場合のmapアクセス時の未定義動作を回避する)
     //右の条件文で数字aの駅が最初に存在するindexと、数字bの駅が最後に存在するindexを
