@@ -47,3 +47,4 @@ int main(){
   printf("%.10f\n",ans);
   return 0;
 }
+//累積和解法
