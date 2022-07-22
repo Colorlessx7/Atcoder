@@ -55,3 +55,4 @@ int main(){
   printf("%.10f\n",ans);
   return 0;
 }
+//二分探索解法
